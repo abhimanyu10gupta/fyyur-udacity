@@ -61,3 +61,6 @@
     </form>
   </div>
 {% endblock %}
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
