@@ -11,7 +11,7 @@
 		</p>
 		<div class="genres">
 			{% for genre in artist.genres %}
-			{% print(genre) %}
+			{% print() %}
 			<span class="genre">{{ genre }}</span>
 			{% endfor %}
 		</div>
@@ -74,6 +74,6 @@
 </section>
 
 <a href="/artists/{{ artist.id }}/edit"><button class="btn btn-primary btn-lg">Edit</button></a>
-
+<a href="/artists/{{ artist.id }}/availabilities"><button class="btn btn-secondary btn-lg">Availabilities</button></a>
 {% endblock %}
 

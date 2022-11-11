@@ -18,6 +18,19 @@ class ShowForm(Form):
     )
 
 
+class AvailabilityForm(Form):
+    start_time = DateTimeField(
+        'start_time',
+        validators=[DataRequired()],
+        default=datetime.today()
+    )
+    end_time = DateTimeField(
+        'end_time',
+        validators=[DataRequired()],
+        default=datetime.today()
+    )
+
+
 class VenueForm(Form):
     name = StringField(
         'name', validators=[DataRequired()]
