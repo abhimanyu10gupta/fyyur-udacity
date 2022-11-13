@@ -114,27 +114,23 @@ class Venue(db.Model):
 
 
 def past_venue_shows(venue_id):
-    return db.session.query(Show).filter(
-        Show.start_time < datetime.now(),
-        Show.venue_id == venue_id).all()
+    return db.session.query(Show).join(Venue).filter(
+        Show.start_time < datetime.now()).all()
 
 
 def upcoming_venue_shows(venue_id):
-    return db.session.query(Show).filter(
-        Show.start_time > datetime.now(),
-        Show.venue_id == venue_id).all()
+    return db.session.query(Show).join(Venue).filter(
+        Show.start_time > datetime.now()).all()
 
 
 def past_artist_shows(artist_id):
-    return db.session.query(Show).filter(
-        Show.start_time < datetime.now(),
-        Show.artist_id == artist_id).all()
+    return db.session.query(Show).join(Artist).filter(
+        Show.start_time < datetime.now()).all()
 
 
 def upcoming_artist_shows(artist_id):
-    return db.session.query(Show).filter(
-        Show.start_time > datetime.now(),
-        Show.artist_id == artist_id).all()
+    return db.session.query(Show).join(Artist).filter(
+        Show.start_time > datetime.now()).all()
 
 
 class Artist(db.Model):
